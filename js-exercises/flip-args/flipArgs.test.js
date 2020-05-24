@@ -3,8 +3,9 @@
 import { flipArgs } from "./flipArgs";
 
 describe("flipArgs", () => {
-  it("should call the function with reversed args", () => {
-    expect(flipArgs(1, 2, 3, 4)).toStrictEqual([4, 3, 2, 1]);
-    expect(flipArgs("a", 2, "b", 4)).toStrictEqual([4, "b", 2, "a"]);
+  it("should call the function with reversed order", () => {
+    expect(flipArgs(1, 2, 3, 4, 5)).toStrictEqual([5, 4, 3, 2, 1]);
+    expect(flipArgs("a", "b", "c", "d")).toStrictEqual(["d", "c", "b", "a"]);
+    expect(flipArgs("test", 100)).toStrictEqual(["test", 100]);
   });
 });
