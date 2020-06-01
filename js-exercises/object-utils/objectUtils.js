@@ -12,16 +12,27 @@ const filter = (object, callBack) => {
   });
 }
 
-const city2country = { Amsterdam: 'Netherlands', Rotterdam: 'Netherlands', Paris: 'France' };
-const invert = (object) => Object.keys(object).reduce((r, k) =>
-        Object.assign(r, { [o[k]]: (r[o[k]] || []).concat(k) }), {})
+// const city2country = { Amsterdam: 'Netherlands', Rotterdam: 'Netherlands', Paris: 'France' };
 
-console.log(reverseMapping(city2country));
+const invert = (object) => Array.prototype.reverse.apply(object);
+
+const merge = input => {
+  const object = {};
+  for (const item of input) {
+    Object.assign(object, item);
+  }
+  return object;
+};
+
+const all = (inputArray, callBack) => inputArray.every(callBack);
+
+const some = inputArray => inputArray.some(el => el <= 500);
+
 export {
   map,
   filter,
-  // invert,
-  // merge,
-  // all,
-  // some,
+  invert,
+  merge,
+  all,
+  some,
 };
