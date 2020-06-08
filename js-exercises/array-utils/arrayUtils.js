@@ -47,7 +47,7 @@ const new_forEach = (callBackFunction, thisArg) => {
       const kValue = O[Pk];
       const item = callBackFunction(T, kValue, k, O);
     }
-    k++;
+    k+=1;
   }
   return undefined;
 }
