@@ -1,22 +1,22 @@
 
 function duplicateLetters(text) {
   let textArray = text.split("");
-  let numberOfDuplicates = 0;
-  for (let i=0; i<textArray.length; i++) 
-  {
-    let letter = textArray[i];
-    let lastIndex = textArray.lastIndexOf(letter);
-    if(lastIndex !== i)
+  let duplicateList = {};
+  let largestDuplicateNumer = 1;
+  textArray.forEach((letter, index) =>{
+    if(duplicateList[letter])
     {
-      numberOfDuplicates++;
+      duplicateList[letter] += 1; 
+      if(duplicateList[letter] > largestDuplicateNumer)
+      {
+        largestDuplicateNumer = duplicateList[letter];
+      }
     }
-  }
-  if(numberOfDuplicates === 0)
-  {
-    return false;
-  }
-  
-  return numberOfDuplicates;
+    else{
+      duplicateList[letter] = 1; 
+    }
+  });
+  return largestDuplicateNumer === 1? false:largestDuplicateNumer;
 }
 
 export {
